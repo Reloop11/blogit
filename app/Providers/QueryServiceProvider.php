@@ -40,14 +40,13 @@ class QueryServiceProvider extends ServiceProvider
                         $queryBuilder->orWhere('body', 'like', '%'.$key.'%');
                     }
 
-                    $queryBuilder->orderByRaw("CASE
-                        WHEN title LIKE ? THEN 1
-                        WHEN title LIKE ? THEN 2
-                        WHEN title LIKE ? THEN 3
-                        WHEN body LIKE ? THEN 4
-                        ELSE 5 END",
-                        [$query.'%', '%'.$query.'%', '%'.$query, '%'.$query.'%']);
-                });
+                })->orderByRaw("CASE
+                    WHEN title LIKE ? THEN 1
+                    WHEN title LIKE ? THEN 2
+                    WHEN title LIKE ? THEN 3
+                    WHEN body LIKE ? THEN 4
+                    ELSE 5 END",
+                    [$query.'%', '%'.$query.'%', '%'.$query, '%'.$query.'%']);
             }
                     
             return $this;
