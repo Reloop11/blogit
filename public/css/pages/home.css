@@ -1,0 +1,60 @@
+/*** Post List Table ***/
+.post-list-table {
+    margin: 12px 0;
+
+    background-color: var(--body-color);
+    box-shadow: var(--shadow-small);
+    border-radius: var(--radius-medium);
+
+    table-layout: auto;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+    .post-list-table th, .post-list-table td:not(.table-data-ignore) {
+        padding: 8px 12px;
+        text-align: left;
+        color: var(--color-dark);
+    }
+
+    .post-list-table th {
+        color: var(--color-dark);
+        background-color: white;
+    }
+    
+    .post-list-table tr:first-child {
+        box-shadow: var(--shadow-small);
+    }
+
+    .post-list-table tr:nth-child(even) {
+        background-color: var(--surface-color);
+    }
+
+    .table-data-ignore {
+        padding: 0;
+        margin: 0;
+    }
+
+.dashboard-post {
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    max-width: 300px;
+    min-height: 150px;
+    padding: 12px;
+    border-radius: var(--radius-medium);
+    background-color: white;
+    box-shadow: var(--shadow-small);
+    margin: 8px;
+}
+    .opacity-50 {
+        opacity: 0.5;
+    }
+
+    .disable-all {
+        pointer-events: none;
+    }
+
+    .visible {
+        display: block;
+    }

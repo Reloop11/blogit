@@ -1,0 +1,117 @@
+/*** Search ***/
+
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 520px;
+    margin-top: 12px;
+    padding: 5px 5px;
+
+    border-radius: var(--radius-medium);
+    background-color: white;
+    box-shadow: 0 0 2px var(--shadow-color);
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-property: background-color, box-shadow;
+}
+    .search-bar-container:focus-within {
+        background-color: white;
+        box-shadow: var(--shadow-small);
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-property: background-color, box-shadow;
+    }
+
+    .search-bar {
+        flex-grow: 1;
+        padding: 3px 6px;
+        background-color: transparent;
+    }
+        .search-bar::placeholder {
+            text-align: center;
+            min-width: min-content;
+            width: 100%;
+            transition: width 0.3s ease;
+        }
+
+            .search-bar:focus::placeholder {
+                text-align: center;
+                width: 0%;
+                transition: width 0.3s ease;
+            }
+    
+    .search-btn {
+        width: 23px;
+        height: 23px;
+        padding: 5px;
+        border-radius: var(--radius-small);
+    }
+
+/*** Post Cards ***/
+.post-card-container {
+    display: flex;
+    flex-direction: row;
+
+    width: 360px;
+    max-width: 360px;
+    margin: 8px;
+    flex-shrink: 1;
+    padding: 8px;
+
+    background-color: white;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-small);
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+    .post-card-container:hover {
+        box-shadow: 0 4px 12px var(--shadow-color2);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .post-card-image-container {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        min-height: 150px;
+        margin-right: 8px;
+        overflow: hidden;
+        border-radius: var(--radius-medium);
+    }
+        .post-card-image {
+            position: relative;
+            margin: 0 auto;
+            min-height: 100%;
+            max-height: 150px;
+            top: 50%; left: 50%;
+            translate: -50% -50%;
+        }
+    
+    .post-tag-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .post-tag {
+            background-color: var(--primary-variant);
+            color: white;
+            padding: 4px 12px 4px 12px;
+            margin: 4px 2px;
+            margin-bottom: 0;
+            border-radius: var(--radius-medium);
+        }
+        
+    .opacity-50 {
+        opacity: 0.5;
+    }
+
+    .disable-all {
+        pointer-events: none;
+    }
+
+    .visible {
+        display: block;
+    }

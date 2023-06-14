@@ -1,0 +1,16 @@
+# Sections
+Homepage
+Login
+Register
+About
+
+-- Auth --
+Dashboard
+Create Post
+Edit Post
+Delete Post
+
++ Tag System
++ Search System
++ User Profile
++ File Upload

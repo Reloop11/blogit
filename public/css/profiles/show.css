@@ -1,0 +1,28 @@
+/*** Profile ***/
+.profile-image-container {
+    position: relative;
+    justify-content: center;
+    
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 12px 0;
+    
+    border-radius: 50%;
+    filter: drop-shadow(1px 0 0 white) 
+            drop-shadow(0 1px 0 white)
+            drop-shadow(-1px 0 0 white) 
+            drop-shadow(0 -1px 0 white);
+    
+    overflow: hidden;
+}
+    .profile-image {
+        position: relative;
+        
+        margin: auto auto;
+        min-height: 100%;
+        max-height: 100px;
+        top: 50%; left: 50%;
+        translate: -50% -50%;
+    }
