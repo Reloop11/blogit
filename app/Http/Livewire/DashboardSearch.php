@@ -9,9 +9,9 @@ class DashboardSearch extends SearchComponent {
 
         if (count(auth()->user()->posts) > 0) {
             $searchResults = auth()->user()->posts()
-                ->search($this->search)
+                ->search($this->search, ['title', 'body'])
                 ->orderBy('updated_at', 'DESC')
-                ->paginate(15);
+                ->paginate(3);
         }
         
         return view('search.dashboard')->with('searchResults', $searchResults);

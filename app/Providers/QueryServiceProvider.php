@@ -20,33 +20,21 @@ class QueryServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Builder::macro('search', function(string $query) {
+        Builder::macro('search', function(string $query, array $fields) {
             $query = trim($query);
             
             if ($query) {
-                $this->where(function($queryBuilder) use ($query) {
+                $this->where(function($queryBuilder) use ($query, $fields) {
                     $keywords = explode(' ', $query);
                     $keywords = array_map('trim', $keywords);
                     $keywords = array_filter($keywords);
                     
-                    $queryBuilder
-                        ->where('title', 'like', $query.'%')
-                        ->orWhere('title', 'like', '%'.$query.'%')
-                        ->orWhere('title', 'like', '%'.$query)
-                        ->orWhere('body', 'like', '%'.$query.'%');
-                    
-                    foreach($keywords as $key) {
-                        $queryBuilder->orWhere('title', 'like', '%'.$key.'%');
-                        $queryBuilder->orWhere('body', 'like', '%'.$key.'%');
+                    foreach($fields as $field) {
+                        foreach($keywords as $key) {
+                            $queryBuilder->orWhere($field, 'like', '%'.$key.'%');
+                            }
                     }
-
-                })->orderByRaw("CASE
-                    WHEN title LIKE ? THEN 1
-                    WHEN title LIKE ? THEN 2
-                    WHEN title LIKE ? THEN 3
-                    WHEN body LIKE ? THEN 4
-                    ELSE 5 END",
-                    [$query.'%', '%'.$query.'%', '%'.$query, '%'.$query.'%']);
+                });
             }
                     
             return $this;

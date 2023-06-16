@@ -5,7 +5,7 @@
     @if($searchResults ?? null)
         <div class="d-flex justify-center">
             <div class="search-bar-container mb-2">
-                <input id="search-bar" class="search-bar" type="text" wire:model.debounce.500ms="search" placeholder="Search for titles or keywords">
+                <input id="search-bar" class="search-bar" type="text" wire:model="search" placeholder="Search for titles or keywords">
                 <img class="d-none mr-2" wire:loading.class="visible" src="{{asset('images/icons/loading.gif')}}" alt="Loading...">
             </div>
         </div>
